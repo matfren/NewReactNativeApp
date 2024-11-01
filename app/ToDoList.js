@@ -1,31 +1,19 @@
 import {Pressable, StyleSheet, View, Text, ScrollView} from 'react-native'; 
 
-const TodoList = () => {
+const TodoList = ({tasks}) => {
+
+
     return (
         <ScrollView>
             <Pressable>
-            <View style={[styles.task, styles.done]}>
-                <Text style={styles.taskText}>Go on a marathon.</Text>
-            </View>
-            </Pressable>
-            <Pressable>
-            <View style={[styles.task]}>
-                <Text style={styles.taskText}>Go exercise.</Text>
-            </View>
-            </Pressable>
-            <Pressable>
-            <View style={[styles.task, styles.done]}>
-                <Text style={styles.taskText}>Go out for hot wings.</Text>
-            </View>
-            </Pressable>
-            <Pressable>
-            <View style={[styles.task]}>
-                <Text style={styles.taskText}>Refuel car.</Text>
-            </View>
-            </Pressable>
-            <Pressable>
-            <View style={[styles.task, styles.done]}>
-                <Text style={styles.taskText}>Fix garden.</Text>
+            <View>
+                {/* Map the array with each task having a separate view. Each task is styled as incomplete. */}
+                {tasks.map((task) => 
+                        <View style={styles.task}>
+                            {<Text style={styles.taskText}>{task}</Text>}
+                        </View>
+                    )
+                }
             </View>
             </Pressable>
         </ScrollView>
