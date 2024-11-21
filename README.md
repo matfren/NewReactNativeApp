@@ -10,6 +10,7 @@
 -	Choose: blank. 
 -	Enter the application’s name.
 3.	After a moment make sure your directory is on the new application then enter:
+-  If not in the correct correct directory error -4058 may show.
 -	npm run web to see your application in the web browser or npm run android to run it in an emulator or on your phone.
 -	If there is an error follow the instructions listed. 
 -	Eg: The following command was shown to fix the error while trying to run on the web: npx expo install react-native-web react-dom @expo/metro-runtime 
