@@ -11,10 +11,21 @@ export default function App() {
     'Walk dog'
   ]);
 
+  const addTask = (taskText) => {
+    //Checks if the task is already in the list.
+    if (tasks.indexOf(taskText) == -1) {
+    //Will get all current task and add the new task at the end.
+      setTasks([...tasks, taskText])
+    }
+    else{
+      alert('Task is already in list.')
+    }
+  }
+
   return (
     <View>
-      <ToDoList tasks={tasks}/>
-      <ToDoForm />
+      <ToDoList tasks={tasks} />
+      <ToDoForm addTask={addTask} />
     </View>
   );
 }

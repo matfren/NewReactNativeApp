@@ -1,12 +1,35 @@
 import {StyleSheet, View, TextInput, Button} from 'react-native';
+import { useState } from 'react';
 
-const ToDoForm = () => {
+
+function ToDoForm ({addTask}) {
+  
+  const [taskText, setTaskText] = useState('');
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      //Checks if the input field is empty.
+      if (taskText == '') {
+        alert('Input field is empty.');
+      }
+      else {
+        addTask(taskText);
+        setTaskText('');
+      }
+    }
+
     return (
         <View style={styles.form}>
             <TextInput
-                style={styles.input}
-                placeholder="New Task"/>
-            <Button title="Add to List"/>
+              style={styles.input}
+              placeholder="New Task"
+              onChangeText={(text) => setTaskText(text)}
+              value={taskText}
+            />
+            <Button 
+              title="Add to List"
+              onPress={handleSubmit}
+            />
         </View>
     );
 };
